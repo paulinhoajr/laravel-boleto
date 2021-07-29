@@ -163,10 +163,14 @@ class Unicred extends AbstractRemessa implements RemessaContract
         if ($boleto->getMulta() > 0) {
             $this->add(94, 94, '2'); //percentual
             $this->add(95, 104, Util::formatCnab('9', $boleto->getMulta(), 10, 2));
-            $this->add(105,105, '2'); // mora de juros: mensal
         } else {
             $this->add(94, 94, '3'); //isento
             $this->add(95, 104, Util::formatCnab('9', '0', 10, 2));
+        }
+
+        if ($boleto->getJuros() > 0) {
+            $this->add(105,105, '2'); // mora de juros: mensal
+        } else {
             $this->add(105,105, '5'); //isento
         }
 
@@ -186,7 +190,7 @@ class Unicred extends AbstractRemessa implements RemessaContract
             $this->add(158, 158, self::INSTRUCAO_PROTESTO_DIAS_UTEIS);
             $this->add(159, 160, Util::formatCnab('9', $boleto->getDiasProtesto(), 2));
         }
-        $this->add(161, 173, Util::formatCnab('9', $boleto->getMoraDia(), 13, 2));
+        $this->add(161, 173, Util::formatCnab('9', $boleto->getJuros(), 13, 2));
         $this->add(174, 179, $boleto->getDesconto() > 0 ? $boleto->getDataDesconto()->format('dmy') : '000000');
         $this->add(180, 192, Util::formatCnab('9', $boleto->getDesconto(), 13, 2));
         $this->add(193, 203, Util::formatCnab('9', $boleto->getNossoNumero(), 11));
