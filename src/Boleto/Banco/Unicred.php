@@ -52,8 +52,8 @@ class Unicred extends AbstractBoleto implements BoletoContract
     protected function gerarNossoNumero()
     {
         $quantidadeCaracteresNossoNumero = 11;
-        $digitoVerificador = CalculoDV::unicredNossoNumero($this->numeroDocumento);
-        return Util::numberFormatGeral($this->numeroDocumento . $digitoVerificador, $quantidadeCaracteresNossoNumero);
+        $digitoVerificador = CalculoDV::unicredNossoNumero($this->numero);
+        return Util::numberFormatGeral($this->numero . $digitoVerificador, $quantidadeCaracteresNossoNumero);
     }
 
     /**
