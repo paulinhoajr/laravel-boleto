@@ -227,7 +227,7 @@ class Unicred extends AbstractRetorno implements RetornoCnab400
             ->setConta($this->rem(32,39,$header))
             ->setContaDv($this->rem(40,40,$header))
             ->setData($this->rem(95, 100, $header))
-            ->setCodigoCliente($this->rem(108, 121, $header));
+            ->setConvenio($this->rem(108, 121, $header));
 
         return true;
     }
@@ -244,7 +244,8 @@ class Unicred extends AbstractRetorno implements RetornoCnab400
             $this->getHeader()
                 ->setAgencia($this->rem(18, 22, $detalhe))
                 ->setConta($this->rem(23, 30, $detalhe))
-                ->setContaDv($this->rem(31, 31, $detalhe));
+                ->setContaDv($this->rem(31, 31, $detalhe))
+                ->setCodigoCliente($this->rem(4, 17, $detalhe));
         }
 
         $d = $this->detalheAtual();
