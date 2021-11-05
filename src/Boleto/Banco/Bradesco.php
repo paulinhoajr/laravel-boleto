@@ -40,6 +40,14 @@ class Bradesco  extends AbstractBoleto implements BoletoContract
         'mostra_cip' => true,
     ];
     /**
+     * Espécie do documento, código para remessa
+     *
+     * @var string
+     */
+    public $especiesCodigo400 = [
+         'DM' => '01', //Duplicata
+    ];
+    /**
      * Espécie do documento, coódigo para remessa
      *
      * @var string
