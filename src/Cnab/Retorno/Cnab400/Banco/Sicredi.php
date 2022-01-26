@@ -312,7 +312,7 @@ class Sicredi extends AbstractRetorno implements RetornoCnab400
                     $d->setRejeicao(implode(PHP_EOL, $motivo));
                 }
 
-            } else {
+            } else if ($d->getOcorrenciaTipo() != 4) { // 4 = OCORRENCIA_ALTERACAO
                 $error = [];
                 $error[] = Arr::get($this->rejeicoes, $errorsRetorno[0], '');
                 $error[] = Arr::get($this->rejeicoes, $errorsRetorno[1], '');
