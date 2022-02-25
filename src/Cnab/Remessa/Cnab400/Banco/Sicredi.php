@@ -174,7 +174,7 @@ class Sicredi extends AbstractRemessa implements RemessaContract
         $this->add(75, 76, '');
         $this->add(77, 78, '');
         $this->add(79, 82, '');
-        $this->add(83, 92, Util::formatCnab('9', 0, 10, 2));
+        $this->add(83, 92, Util::formatCnab('9', $boleto->getDesconto(), 10, 2));
         $this->add(93, 96, Util::formatCnab('9', $boleto->getMulta(), 4, 2));
         $this->add(97, 108, '');
         $this->add(109, 110, self::OCORRENCIA_REMESSA); // REGISTRO
@@ -205,7 +205,7 @@ class Sicredi extends AbstractRemessa implements RemessaContract
         }
         $this->add(161, 173, Util::formatCnab('9', $boleto->getMoraDia(), 13, 2));
         $this->add(174, 179, $boleto->getDesconto() > 0 ? $boleto->getDataDesconto()->format('dmy') : '000000');
-        $this->add(180, 192, Util::formatCnab('9', $boleto->getDesconto(), 13, 2));
+        $this->add(180, 192, Util::formatCnab('9', 0, 13, 2));
         $this->add(193, 205, Util::formatCnab('9', 0, 13, 2));
         $this->add(206, 218, Util::formatCnab('9', 0, 13, 2));
         $this->add(219, 220, strlen(Util::onlyNumbers($boleto->getPagador()->getDocumento())) == 14 ? '20' : '10');
