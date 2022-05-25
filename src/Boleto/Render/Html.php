@@ -28,6 +28,11 @@ class Html implements HtmlContract
     private $blade = null;
 
     /**
+     * @var string
+     */
+	private $titulo = 'Boletos';
+
+    /**
      * @return \Illuminate\View\Factory
      * @throws \Exception
      */
@@ -53,6 +58,11 @@ class Html implements HtmlContract
         });
         return $this->blade;
     }
+
+    public function setTitulo($titulo)
+	{
+		$this->titulo = $titulo;
+	}
 
     /**
      * Addiciona o boletos
@@ -180,6 +190,7 @@ class Html implements HtmlContract
             'css' => $this->writeCss(),
             'imprimir_carregamento' => (bool) $this->print,
             'mostrar_instrucoes' => (bool) $this->showInstrucoes,
+            'titulo' => $this->titulo,
         ])->render();
     }
 
