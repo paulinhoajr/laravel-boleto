@@ -147,7 +147,7 @@ class Bradesco extends AbstractRetorno implements RetornoCnab400
         }
 
         $d = $this->detalheAtual();
-        $d->setCarteira($this->rem(108, 108, $detalhe))
+        $d->setCarteira($this->rem(22, 24, $detalhe))
             ->setNossoNumero($this->rem(71, 81, $detalhe))
             ->setNumeroDocumento($this->rem(117, 126, $detalhe))
             ->setNumeroControle($this->rem(38, 62, $detalhe))
