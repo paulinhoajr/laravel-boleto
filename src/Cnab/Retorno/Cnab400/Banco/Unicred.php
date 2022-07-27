@@ -43,7 +43,7 @@ class Unicred extends AbstractRetorno implements RetornoCnab400
      * @var array
      */
     private $rejeicoes = [
-        '00' => 'Sem Complemento a informar',
+        '00' => '',
         '01' => 'Código do Banco Inválido',
         '04' => 'Código de Movimento não permitido para a carteira',
         '05' => 'Código de Movimento Inválido',
