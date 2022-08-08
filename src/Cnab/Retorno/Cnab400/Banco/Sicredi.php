@@ -25,8 +25,9 @@ class Sicredi extends AbstractRetorno implements RetornoCnab400
         '02' => 'Entrada confirmada',
         '03' => 'Entrada rejeitada',
         '06' => 'Liquidação normal',
+        '07' => 'Intenção de pagamento (agendamento)',
         '09' => 'Baixado automaticamente via arquivo',
-        '10' => 'Baixado conforme instruções da cooperativa de crédito',
+        '10' => 'Baixado conforme instruções da cooperativa',
         '12' => 'Abatimento concedido',
         '13' => 'Abatimento cancelado',
         '14' => 'Vencimento alterado',
@@ -44,6 +45,14 @@ class Sicredi extends AbstractRetorno implements RetornoCnab400
         '33' => 'Confirmação de pedido de alteração de outros dados',
         '34' => 'Retirado de cartório e manutenção em carteira',
         '35' => 'Aceite do pagador',
+        '78' => 'Confirmação de recebimento de pedido de negativação',
+        '79' => 'Confirmação de recebimento de pedido de exclusão de negativação',
+        '80' => 'Confirmação de entrada de negativação',
+        '81' => 'Entrada de negativação rejeitada',
+        '82' => 'Confirmação de exclusão de negativação',
+        '83' => 'Exclusão de negativação rejeitada',
+        '84' => 'Exclusão de negativação por outros motivos',
+        '85' => 'Ocorrência informacional por outros motivos',
     ];
 
     /**
