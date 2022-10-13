@@ -142,13 +142,13 @@ class Banrisul extends AbstractRemessa implements RemessaContract
             $this->add(16, 17, sprintf('%2.02s', $boleto->getComando()));
         }
 
-        $this->add(18, 22, Util::formatCnab('9', $this->getAgencia(), 5));
+        /*$this->add(18, 22, Util::formatCnab('9', $this->getAgencia(), 5));
         $this->add(23, 23, '');
         $this->add(24, 35, Util::formatCnab('9', $this->getConta(), 12));
         $this->add(36, 36, CalculoDV::banrisulContaCorrente($this->getConta()));
-        $this->add(37, 37, '');
+        $this->add(37, 37, '');*/
 
-		//$this->add(18, 37, '');
+		$this->add(18, 37, '');
 
 		$this->add(38, 47, Util::formatCnab('9', $boleto->getNossoNumero(), 10));
 		$this->add(48, 57, '');
@@ -291,15 +291,13 @@ class Banrisul extends AbstractRemessa implements RemessaContract
         $this->add(19, 32, Util::formatCnab('9', Util::onlyNumbers($this->getBeneficiario()->getDocumento()), 14));
         $this->add(33, 52, Util::formatCnab('X', Util::onlyNumbers($this->getCodigoCliente()), 20));
 
-		$this->add(53, 57, Util::formatCnab('9', $this->getAgencia(), 5));
-		$this->add(58, 72, '');
-
-        /*$this->add(58, 58, CalculoDV::banrisulAgencia($this->getAgencia()));
+		/*$this->add(53, 57, Util::formatCnab('9', $this->getAgencia(), 5));
+        $this->add(58, 58, CalculoDV::banrisulAgencia($this->getAgencia()));
         $this->add(59, 70, Util::formatCnab('X', $this->getConta(), 12));
         $this->add(71, 71, CalculoDV::banrisulContaCorrente($this->getConta()));
         $this->add(72, 72, $this->getContaDv());*/
 
-		//$this->add(53, 72, '');
+		$this->add(53, 72, '');
 
         $this->add(73, 102, Util::formatCnab('X', $this->getBeneficiario()->getNome(), 30));
         $this->add(103, 132, Util::formatCnab('X', 'BANRISUL', 30));
