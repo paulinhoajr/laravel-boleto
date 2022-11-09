@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: simetriatecnologia
- * Date: 15/09/16
- * Time: 14:02
- */
 
 namespace Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco;
 
@@ -148,11 +142,11 @@ class Banrisul extends AbstractRemessa implements RemessaContract
             $this->add(16, 17, sprintf('%2.02s', $boleto->getComando()));
         }
 
-        //$this->add(18, 22, Util::formatCnab('9', $this->getAgencia(), 5));
-        //$this->add(23, 23, '');
-        //$this->add(24, 35, Util::formatCnab('9', $this->getConta(), 12));
-        //$this->add(36, 36, CalculoDV::banrisulContaCorrente($this->getConta()));
-        //$this->add(37, 37, '');
+        /*$this->add(18, 22, Util::formatCnab('9', $this->getAgencia(), 5));
+        $this->add(23, 23, '');
+        $this->add(24, 35, Util::formatCnab('9', $this->getConta(), 12));
+        $this->add(36, 36, CalculoDV::banrisulContaCorrente($this->getConta()));
+        $this->add(37, 37, '');*/
 
 		$this->add(18, 37, '');
 
