@@ -32,6 +32,14 @@ class Pessoa implements PessoaContract
     /**
      * @var string
      */
+	 protected $fone;
+    /**
+     * @var string
+     */
+	 protected $email;
+    /**
+     * @var string
+     */
     protected $documento;
 
     /**
@@ -47,10 +55,12 @@ class Pessoa implements PessoaContract
      * @param null $cep
      * @param null $cidade
      * @param null $uf
+     * @param null $fone
+     * @param null $email
      *
      * @return Pessoa
      */
-    public static function create($nome, $documento, $endereco = null, $bairro = null, $cep = null, $cidade = null, $uf = null)
+    public static function create($nome, $documento, $endereco = null, $bairro = null, $cep = null, $cidade = null, $uf = null, $fone = null, $email = null)
     {
         return new static([
             'nome' => $nome,
@@ -60,6 +70,8 @@ class Pessoa implements PessoaContract
             'uf' => $uf,
             'cidade' => $cidade,
             'documento' => $documento,
+            'fone' => $fone,
+            'email' => $email,
         ]);
     }
 
@@ -118,6 +130,26 @@ class Pessoa implements PessoaContract
     public function getCidade()
     {
         return $this->cidade;
+    }
+
+	/**
+     * Retorna o Telefone
+     *
+     * @return string
+     */
+    public function getFone()
+    {
+        return $this->fone;
+    }
+
+	/**
+     * Retorna o E-mail
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -222,6 +254,34 @@ class Pessoa implements PessoaContract
         return $this->nome;
     }
 
+	/**
+     * Define o Telefone
+     *
+     * @param string $fone
+     *
+     * @return Pessoa
+     */
+    public function setFone($fone)
+    {
+        $this->fone = $fone;
+
+        return $this;
+    }
+
+	/**
+     * Define o E-mail
+     *
+     * @param string $email
+     *
+     * @return Pessoa
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
     /**
      * Define a UF
      *
@@ -271,7 +331,7 @@ class Pessoa implements PessoaContract
         } elseif (strlen($cpf_cnpj_cei) == 10) {
             return 'CEI';
         }
-        
+
         return 'CNPJ';
     }
     /**
@@ -299,7 +359,7 @@ class Pessoa implements PessoaContract
         $dados = array_filter(array($this->getEndereco(), $this->getBairro(), $this->getCidade(), $this->getUf(), $this->getCep()));
         return implode(' - ', $dados);
     }
-	
+
     /**
      * @return bool
      */
@@ -333,6 +393,8 @@ class Pessoa implements PessoaContract
             'nome_documento' => $this->getNomeDocumento(),
             'endereco2' => $this->getCepCidadeUf(),
 			'endereco_completo' => $this->getEnderecoCompleto(),
+			'email' => $this->getEmail(),
+			'fone' => $this->getFone(),
             'dda' => $this->isDda(),
         ];
     }
