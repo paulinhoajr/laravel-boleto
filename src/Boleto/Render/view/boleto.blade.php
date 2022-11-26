@@ -43,11 +43,11 @@
             @endif
             <div style="display: inline-block; vertical-align: super;">
                 <div style="font-size: 0.8125rem;"><strong>{{ $beneficiario['nome'] }}</strong></div>
-                <div>{{ $beneficiario['endereco'] }} {{ $beneficiario['endereco2'] }}</div>
+                <div>{{ $beneficiario['endereco'] }}</div>
+                <div>{{ $beneficiario['endereco2'] }}</div>
                 <div>
 					{{ $beneficiario['documento'] }}
 					@if($beneficiario['fone']) - {{ $beneficiario['fone'] }} @endif
-					@if($beneficiario['email']) - {{ $beneficiario['email'] }} @endif
 				</div>
             </div>
         </div>
